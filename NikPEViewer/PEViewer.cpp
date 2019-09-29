@@ -134,7 +134,7 @@ int CNikPEViewer::GetMachineName(int nCode, int nStrSize, TCHAR *chMachine)
 	else if (0x1a8 == nCode)
         _stprintf_s(chMachine, nStrSize, STR_PRINTF_s, _T("Hitachi SH5"), 1, 1);
 	else if (0x1c2 == nCode)
-        _stprintf_s(chMachine, nStrSize, STR_PRINTF_s, _T("ARM or Thumb (“interworking”)"), 1, 1);
+        _stprintf_s(chMachine, nStrSize, STR_PRINTF_s, _T("ARM or Thumb (“interworking?"), 1, 1);
 	else if (0x169 == nCode)
         _stprintf_s(chMachine, nStrSize, STR_PRINTF_s, _T("MIPS little-endian WCE v2"), 1, 1);
     else
@@ -350,7 +350,7 @@ _tstring CNikPEViewer::GetVerResLanguage( DWORD dwResLang )
 		_stprintf_s(chBuf,1023,_T("Dutch"));
 		break;
 	case 0x0414:
-		_stprintf_s(chBuf,1023,_T("Norwegian – Bokmal"));
+		_stprintf_s(chBuf,1023,_T("Norwegian ?Bokmal"));
 		break;
 	case 0x0810:
 		_stprintf_s(chBuf,1023,_T("Swiss Italian"));
@@ -359,7 +359,7 @@ _tstring CNikPEViewer::GetVerResLanguage( DWORD dwResLang )
 		_stprintf_s(chBuf,1023,_T("Belgian Dutch"));
 		break;
 	case 0x0814:
-		_stprintf_s(chBuf,1023,_T("Norwegian – Nynorsk"));
+		_stprintf_s(chBuf,1023,_T("Norwegian ?Nynorsk"));
 		break;
 	case 0x0415:
 		_stprintf_s(chBuf,1023,_T("Polish"));

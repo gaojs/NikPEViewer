@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "ResourceWnd.h"
 #include "MenuWnd.h"
+#include "WinUser.h"
 #include "PEViewer.h"
 
 // VKey Lookup Support 
