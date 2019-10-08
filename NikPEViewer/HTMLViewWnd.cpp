@@ -455,14 +455,13 @@ void CNikHTMLWindow::Fill_IMAGE_NT_HEADERS(_tstring &strHtmlText)
     _tstring strChar;
     CNikPEViewer::GetMachineName(pNTHeaders->FileHeader.Machine, 1023, chBuf);
     SetTable2ColStr( strHtmlText, NT_HEADERS_FH_MACHINE, chBuf);
-    
+
+	SetTable2ColValue(strHtmlText, NT_HEADERS_FH_NUOFSECTIONS, pNTHeaders->FileHeader.NumberOfSections);
     CNikPEViewer::GetStrDateTimeStamp(pNTHeaders->FileHeader.TimeDateStamp, 1023, chBuf);
     SetTable2ColStr( strHtmlText, NT_HEADERS_FH_TIMEDATESTAMP, chBuf);
-    SetTable2ColValue( strHtmlText, NT_HEADERS_FH_CHARACTERISTIC, pNTHeaders->FileHeader.Characteristics);
-    SetTable2ColValue( strHtmlText, NT_HEADERS_FH_NUOFSECTIONS, pNTHeaders->FileHeader.NumberOfSections);
+	SetTable2ColValue(strHtmlText, NT_HEADERS_FH_PTSYMBOLTABLE, pNTHeaders->FileHeader.PointerToSymbolTable);
+	SetTable2ColValue(strHtmlText, NT_HEADERS_FH_NUMBEROFSYMBOL, pNTHeaders->FileHeader.NumberOfSymbols);
     SetTable2ColValue( strHtmlText, NT_HEADERS_FH_SIZEOFOPHEADER, pNTHeaders->FileHeader.SizeOfOptionalHeader);
-    SetTable2ColValue( strHtmlText, NT_HEADERS_FH_PTSYMBOLTABLE, pNTHeaders->FileHeader.PointerToSymbolTable);
-    SetTable2ColValue( strHtmlText, NT_HEADERS_FH_NUMBEROFSYMBOL, pNTHeaders->FileHeader.NumberOfSymbols);
 
     CNikPEViewer::GetNTCharacteristics(pNTHeaders->FileHeader.Characteristics, strChar);
     _stprintf_s(chBuf, 1023, _T("%s 0x%X"), strChar.data(), pNTHeaders->FileHeader.Characteristics);
@@ -509,6 +508,8 @@ void CNikHTMLWindow::Fill_IMAGE_NT_HEADERS(_tstring &strHtmlText)
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFSTACKCOMMIT, (DWORD)pNTHeaders64->OptionalHeader.SizeOfStackCommit);
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFHEAPRESERVE, (DWORD)pNTHeaders64->OptionalHeader.SizeOfHeapReserve);
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFHEAPCOMMIT, (DWORD)pNTHeaders64->OptionalHeader.SizeOfHeapCommit);
+		SetTable2ColValue(strHtmlText, NT_HEADERS_OP_LOADERFLAGS, (DWORD)pNTHeaders64->OptionalHeader.LoaderFlags);
+		SetTable2ColValue(strHtmlText, NT_HEADERS_OP_NUOFRVAANDSIZES, (DWORD)pNTHeaders64->OptionalHeader.NumberOfRvaAndSizes);
     }
     else
     {
@@ -516,10 +517,9 @@ void CNikHTMLWindow::Fill_IMAGE_NT_HEADERS(_tstring &strHtmlText)
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFSTACKCOMMIT, pNTHeaders->OptionalHeader.SizeOfStackCommit);
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFHEAPRESERVE, pNTHeaders->OptionalHeader.SizeOfHeapReserve);
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFHEAPCOMMIT, pNTHeaders->OptionalHeader.SizeOfHeapCommit);
+		SetTable2ColValue(strHtmlText, NT_HEADERS_OP_LOADERFLAGS, pNTHeaders->OptionalHeader.LoaderFlags);
+		SetTable2ColValue(strHtmlText, NT_HEADERS_OP_NUOFRVAANDSIZES, pNTHeaders->OptionalHeader.NumberOfRvaAndSizes);
     }
-    SetTable2ColValue( strHtmlText, NT_HEADERS_OP_LOADERFLAGS, pNTHeaders->OptionalHeader.LoaderFlags);
-    SetTable2ColValue( strHtmlText, NT_HEADERS_OP_NUOFRVAANDSIZES, pNTHeaders->OptionalHeader.NumberOfRvaAndSizes);
-
     strHtmlText += STR_HTML_TABLE_E;
 }
 

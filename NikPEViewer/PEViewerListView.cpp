@@ -301,12 +301,18 @@ int CNikPEVHeaderList::List_IMAGE_NT_HEADERS(const IMAGE_NT_HEADERS * pNTHeaders
     InsertColumnListViewValues(m_hWnd, _T(""), 0, 0);  //  Blank column
     InsertColumnListViewValues(m_hWnd, _T(""), 0, 0);  //  Blank column
 
-    InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_NUOFRVAANDSIZES, 0, 0);
-    _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.NumberOfRvaAndSizes);
+    InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_NUOFRVAANDSIZES, 0, 0);;
+	if (nExtended)
+		_stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders64->OptionalHeader.NumberOfRvaAndSizes);
+	else
+		_stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.NumberOfRvaAndSizes);
     InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
 
     InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_LOADERFLAGS, 0, 0);
-    _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.LoaderFlags);
+	if (nExtended)
+		_stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders64->OptionalHeader.LoaderFlags);
+	else
+		_stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.LoaderFlags);
     InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
 
     InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_SIZEOFHEAPCOMMIT, 0, 0);
