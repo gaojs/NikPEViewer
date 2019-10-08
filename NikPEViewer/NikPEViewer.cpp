@@ -37,8 +37,8 @@ INT_PTR CALLBACK	About(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    LicenseDlg(HWND , UINT , WPARAM , LPARAM );
 
 #define MAX_VALUE_NAME 16383
-#define REG_RECENT_KEY_VALUE    _T("Software\\CodeDebug\\PEViewer\\v0.0.2.1")
-#define REG_RECENT_KEY_NAME     _T("Software\\CodeDebug\\PEViewer\\v0.0.2.1\\Recent Files")
+#define REG_RECENT_KEY_VALUE    _T("Software\\CodeDebug\\PEViewer\\v0.0.2.2")
+#define REG_RECENT_KEY_NAME     _T("Software\\CodeDebug\\PEViewer\\v0.0.2.2\\Recent Files")
 
 int UpdateRegisterValues()
 {

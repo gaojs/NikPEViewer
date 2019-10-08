@@ -373,8 +373,8 @@ int CNikPEVHeaderList::List_IMAGE_NT_HEADERS(const IMAGE_NT_HEADERS * pNTHeaders
     _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.MinorImageVersion);
     InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
 
-    InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_MAJORLINKERVERSION, 0, 0);
-    _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.MajorLinkerVersion);
+    InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_MAJORIMAGEVERSION, 0, 0);
+    _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.MajorImageVersion);
     InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
 
     InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_MINOROSVERSION, 0, 0);
@@ -429,13 +429,13 @@ int CNikPEVHeaderList::List_IMAGE_NT_HEADERS(const IMAGE_NT_HEADERS * pNTHeaders
     _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.SizeOfCode);
     InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
 
-    InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_MINORIMAGEVERSION, 0, 0);
-    _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.MinorLinkerVersion);
-    InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
-
     InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_MINORLINKERVERSION, 0, 0);
     _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.MinorLinkerVersion);
     InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
+
+	InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_MAJORLINKERVERSION, 0, 0);
+	_stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.MajorLinkerVersion);
+	InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
 
     InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_MAGIC, 0, 0);
     _stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.Magic);

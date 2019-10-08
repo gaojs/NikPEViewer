@@ -475,8 +475,8 @@ void CNikHTMLWindow::Fill_IMAGE_NT_HEADERS(_tstring &strHtmlText)
     SetTable1ColValue( strHtmlText, NT_HEADERS_OP_2);
 
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MAGIC, pNTHeaders->OptionalHeader.Magic);
+	SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MAJORLINKERVERSION, pNTHeaders->OptionalHeader.MajorLinkerVersion);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MINORLINKERVERSION, pNTHeaders->OptionalHeader.MinorLinkerVersion);
-    SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MINORIMAGEVERSION, pNTHeaders->OptionalHeader.MinorImageVersion);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFCODE, pNTHeaders->OptionalHeader.SizeOfCode);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFINITDATA, pNTHeaders->OptionalHeader.SizeOfInitializedData);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SIZEOFUNINITDATA, pNTHeaders->OptionalHeader.SizeOfUninitializedData);
@@ -492,7 +492,7 @@ void CNikHTMLWindow::Fill_IMAGE_NT_HEADERS(_tstring &strHtmlText)
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_FILEALIGNMENT, pNTHeaders->OptionalHeader.FileAlignment);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MAJOROSVERSION, pNTHeaders->OptionalHeader.MajorOperatingSystemVersion);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MINOROSVERSION, pNTHeaders->OptionalHeader.MinorOperatingSystemVersion);
-    SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MAJORLINKERVERSION, pNTHeaders->OptionalHeader.MajorLinkerVersion);
+    SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MAJORIMAGEVERSION, pNTHeaders->OptionalHeader.MajorImageVersion);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MINORIMAGEVERSION, pNTHeaders->OptionalHeader.MinorImageVersion);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MAJORSUBSYSVERSION, pNTHeaders->OptionalHeader.MajorSubsystemVersion);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MINORSUBSYSVERSION, pNTHeaders->OptionalHeader.MinorSubsystemVersion);
