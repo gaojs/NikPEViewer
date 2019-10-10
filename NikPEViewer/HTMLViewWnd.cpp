@@ -484,9 +484,14 @@ void CNikHTMLWindow::Fill_IMAGE_NT_HEADERS(_tstring &strHtmlText)
     if(!nExtended)
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_BASEOFDATA, pNTHeaders->OptionalHeader.BaseOfData);
     if(nExtended)
-        SetTable2ColValue( strHtmlText, NT_HEADERS_OP_IMAGEBASE, pNTHeaders->OptionalHeader.ImageBase);
-    else
+	{
+		SetTable2ColValue(strHtmlText, NT_HEADERS_OP_IMAGEBASE_HIGH, (DWORD)(pNTHeaders64->OptionalHeader.ImageBase >> 32));
         SetTable2ColValue( strHtmlText, NT_HEADERS_OP_IMAGEBASE, (DWORD)pNTHeaders64->OptionalHeader.ImageBase);
+	}
+    else
+	{
+        SetTable2ColValue( strHtmlText, NT_HEADERS_OP_IMAGEBASE, (DWORD)pNTHeaders->OptionalHeader.ImageBase);
+	}
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_SECTIONALIGNMENT, pNTHeaders->OptionalHeader.SectionAlignment);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_FILEALIGNMENT, pNTHeaders->OptionalHeader.FileAlignment);
     SetTable2ColValue( strHtmlText, NT_HEADERS_OP_MAJOROSVERSION, pNTHeaders->OptionalHeader.MajorOperatingSystemVersion);

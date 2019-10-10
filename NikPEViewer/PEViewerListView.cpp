@@ -401,7 +401,7 @@ int CNikPEVHeaderList::List_IMAGE_NT_HEADERS(const IMAGE_NT_HEADERS * pNTHeaders
 
     InsertColumnListViewValues(m_hWnd, NT_HEADERS_OP_IMAGEBASE, 0, 0);
 	if(nExtended)
-		_stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders64->OptionalHeader.ImageBase);
+		_stprintf_s(chBuf, 1023, STR_PRINTF_I64X, pNTHeaders64->OptionalHeader.ImageBase);
 	else
 		_stprintf_s(chBuf, 1023, STR_PRINTF_X, pNTHeaders->OptionalHeader.ImageBase);
     InsertColumnListViewValues(m_hWnd, chBuf, 1, 1);
